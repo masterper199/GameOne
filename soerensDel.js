@@ -17,9 +17,11 @@ var keyData = {
 	}
 }
 var currentFigure;
+var score = 0;
 var seconds = 3;
 var secondsTemp = seconds;
-var temp;
+var temp = document.getElementById("countdownVal");
+var scoreElement = document.getElementById("scoreVal");
 
 
 countdown();
@@ -35,6 +37,12 @@ $(document).keypress(function(e){
 // Functions
 // -------------------------
 function init(){
+	score = 0;
+	scoreElement.innerHTML = score.toString();
+	redraw();
+}
+
+function redraw(){
 	secondsTemp = seconds;
 	currentFigure = randomFigure();
 	drawFigure();
@@ -53,9 +61,12 @@ function drawFigure(){
 function checkKeyMatch(e){
 	if (keyData[e.key]) {
 	  	if (keyData[e.key].figure == currentFigure) {
-	  		init();
+	  		score++;
+	  		scoreElement.innerHTML = score.toString();
+	  		redraw();
 	  	} else {
-	  		alert("GAME OVER");
+	  		gameOver();
+	  		init();
 	  	}
 	  }
 }
@@ -66,15 +77,22 @@ function checkKeyMatch(e){
 
 function countdown() {
 	if (secondsTemp == 1) {
-		alert("GAME OVER");
-		init();
-		temp = document.getElementById("countdown");
 		temp.innerHTML = "0";
+		gameOver();
+		redraw();
 		secondsTemp = seconds;
 	}
 
 	secondsTemp--;
-	temp = document.getElementById("countdown");
 	temp.innerHTML = secondsTemp;
 	setTimeout(countdown, 1000);
+}
+
+function gameOver(){
+	if (score == 1) {
+		alert("GAME OVER, you scored " + score + " point!");
+	} else {
+		alert("GAME OVER, you scored " + score + " points!");
+	}
+	
 }
