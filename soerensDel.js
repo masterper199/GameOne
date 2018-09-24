@@ -17,12 +17,17 @@ var keyData = {
 	}
 }
 var currentFigure;
+var seconds = 3;
+var secondsTemp = seconds;
+var temp;
 
+
+countdown();
 init();
 
 //Eventlistener on document
 $(document).keypress(function(e){
-  checkKeyMatch();
+  checkKeyMatch(e);
 });
 
 
@@ -30,8 +35,10 @@ $(document).keypress(function(e){
 // Functions
 // -------------------------
 function init(){
+	secondsTemp = seconds;
 	currentFigure = randomFigure();
 	drawFigure();
+	// alert("Start over");
 }
 
 function randomFigure(){
@@ -41,9 +48,10 @@ function randomFigure(){
 function drawFigure(){
 	$(".figure").removeClass();
 	$(".figure").addClass(currentFigure);
+	$("h1").html(currentFigure);
 }
 
-function checkKeyMatch(){
+function checkKeyMatch(e){
 	if (keyData[e.key]) {
 	  	if (keyData[e.key].figure == currentFigure) {
 	  		init();
@@ -54,9 +62,20 @@ function checkKeyMatch(){
 }
 
 // -------------------------
-// Timer functions
+// Countdown function
 // -------------------------
 
 function countdown() {
-	seconds = document.getElementById("countdown")
+	if (secondsTemp == 1) {
+		alert("GAME OVER");
+		init();
+		temp = document.getElementById("countdown");
+		temp.innerHTML = "0";
+		secondsTemp = seconds;
+	}
+
+	secondsTemp--;
+	temp = document.getElementById("countdown");
+	temp.innerHTML = secondsTemp;
+	setTimeout(countdown, 1000);
 }
