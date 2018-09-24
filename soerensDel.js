@@ -66,7 +66,7 @@ function checkKeyMatch(e){
 
 function countdown() {
 	if (secondsTemp == 1) {
-		// alert("GAME OVER");
+		alert("GAME OVER");
 		init();
 		temp = document.getElementById("countdown");
 		temp.innerHTML = "0";
