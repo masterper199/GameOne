@@ -48,7 +48,6 @@ function randomFigure(){
 function drawFigure(){
 	$("#figure").removeClass();
 	$("#figure").addClass(currentFigure.toString());
-	$("h1").html(currentFigure);
 }
 
 function checkKeyMatch(e){

@@ -16,13 +16,6 @@
    border: 5px solid black;
 }
 
-.firkant{
-
-    position: fixed;
-    left: 300px;
-    bottom: 200px;
-}
-
 .trekant {
   width: 0px; 
   height: 0px;
@@ -54,12 +47,15 @@
 .sekskant {
   width: 100px;
   height: 55px;
+  /*padding:25px;*/
   background: red;
   position: relative;
+  margin-top: 25px
 }
 .sekskant:before {
   content: "";
   position: absolute;
+  /*padding:25px;*/
   top: -25px;
   left: 0;
   width: 0;
@@ -71,6 +67,7 @@
 .sekskant:after {
   content: "";
   position: absolute;
+  /*padding:25px;*/
   bottom: -25px;
   left: 0;
   width: 0;
@@ -78,4 +75,10 @@
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   border-top: 25px solid red;
+}
+
+.container {
+
+  text-align: center !important;
+  margin: auto !important;
 }
