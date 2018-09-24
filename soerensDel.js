@@ -46,8 +46,8 @@ function randomFigure(){
 }
 
 function drawFigure(){
-	$(".figure").removeClass();
-	$(".figure").addClass(currentFigure);
+	$("#figure").removeClass();
+	$("#figure").addClass(currentFigure);
 	$("h1").html(currentFigure);
 }
 
@@ -67,7 +67,7 @@ function checkKeyMatch(e){
 
 function countdown() {
 	if (secondsTemp == 1) {
-		alert("GAME OVER");
+		// alert("GAME OVER");
 		init();
 		temp = document.getElementById("countdown");
 		temp.innerHTML = "0";

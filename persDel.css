@@ -1,10 +1,5 @@
 
-
-h1 {
-
-	color: red;
-}
-.test {
+.cirkel {
 
      width: 100px;
      height: 100px;
@@ -28,39 +23,59 @@ h1 {
     bottom: 200px;
 }
 
-.top {
+.trekant {
   width: 0px; 
   height: 0px;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
   
-  border-bottom: 75px solid green;
-}
-/*
-.bund {
-  width: 0px; 
-  height: 0px; 
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  
-  border-top: 100px solid #f00;
+  border-bottom: 98px solid green;
 }
 
-
-.right {
-  width: 20px; 
-  height: 20px; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  
-  border-left: 60px solid green;
+.femkant {
+    position: relative;
+    width: 54px;
+    border-width: 50px 18px 0;
+    border-style: solid;
+    border-color: red transparent;
+}
+.femkant:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -85px;
+    left: -18px;
+    border-width: 0 45px 35px;
+    border-style: solid;
+    border-color: transparent transparent red;
 }
 
-.left {
-  width: 20px; 
-  height: 20px; 
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent; 
-  
-  border-right:10px solid blue; 
-}*/
+.sekskant {
+  width: 100px;
+  height: 55px;
+  background: red;
+  position: relative;
+}
+.sekskant:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid red;
+}
+.sekskant:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid red;
+}
